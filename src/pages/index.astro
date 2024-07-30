@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
+import Clock from '../components/Clock.tsx';
 
 const websites = [
   {
@@ -27,7 +27,7 @@ const websites = [
     label: "127.0.1.1",
     href: "http://localhost:3000",
   },
-]
+];
 ---
 
 <Layout title="Welcome to Astro.">
@@ -36,10 +36,7 @@ const websites = [
       <h1 class="build-title">
         What are you going to <br /> <span class="build-span"> BUILD </span> today?
       </h1>
-      <div class="clock-wraper">
-        <h1>09:59<h1>
-        <p>30 july 2024</p>
-      </div>
+      <Clock client:load />
     </section>
     <section>
       <div class="box-1">
@@ -102,33 +99,11 @@ section:first-child {
   gap: 500px;
 }
 
-.clock-wraper {
-  display: flex;
-  flex-direction: column;
-  text-align: end;
-
-  position: relative;
-}
-
-.clock-wraper h1 {
-  font-size: 128px;
-  font-weight: bold;
-}
-
-.clock-wraper p {
-  font-size: 20px;
-  font-weight: normal;
-  color: var(--sub-headline);
-
-  position: absolute;
-  bottom: 0;
-  right: 5px;
-}
-
 section:last-child {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  gap: 250px;
 }
 
 .box-1 {
