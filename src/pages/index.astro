@@ -1,10 +1,181 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
+
+const websites = [
+  {
+    label: "github",
+    href: "https://github.com/Renegildo",
+  },
+  {
+    label: "monkeytype",
+    href: "https://monkeytype.com",
+  },
+  {
+    label: "youtube",
+    href: "https://www.youtube.com",
+  },
+  {
+    label: "tabnews",
+    href: "https://tabnews.com.br",
+  },
+  {
+    label: "dribbble",
+    href: "https://dribbble.com",
+  },
+  {
+    label: "127.0.1.1",
+    href: "http://localhost:3000",
+  },
+]
 ---
 
 <Layout title="Welcome to Astro.">
   <main>
-    There is the content of the page
+    <section>
+      <h1 class="build-title">
+        What are you going to <br /> <span class="build-span"> BUILD </span> today?
+      </h1>
+      <div class="clock-wraper">
+        <h1>09:59<h1>
+        <p>30 july 2024</p>
+      </div>
+    </section>
+    <section>
+      <div class="box-1">
+        <q>
+          <cite>
+            Porque Deus amou o mundo de tal maneira que deu o seu Filho unigênito,
+            para que todo aquele que nele crê não pereça, mas tenha a vida eterna.
+          </cite>
+        </q>
+        <p>
+          ~ Joao 3:16
+        </p>
+      </div>
+      <div class="box-2">
+        <h3>
+          websites   
+        </h3>
+        <ul>
+          {websites.map(website => (
+            <li>
+              <a href={website.href}>
+                {website.label}
+              </a>
+            </li>
+          ))}
+        <ul>
+      </div>
+    </section>
   </main>
 </Layout>
+
+<style>
+main {
+  color: var(--body-copy);
+  font-family: Inter, sans-serif;
+
+  max-width: 1500px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+}
+
+.build-title {
+  font-weight: normal;
+  font-size: 64px;
+}
+
+.build-span {
+  font-weight: bold;
+  background-color: var(--cyan);
+  color: var(--background-base);
+  
+  display: inline-flex;
+  justify-content: center;
+}
+
+section:first-child {
+  display: flex;
+  gap: 500px;
+}
+
+.clock-wraper {
+  display: flex;
+  flex-direction: column;
+  text-align: end;
+
+  position: relative;
+}
+
+.clock-wraper h1 {
+  font-size: 128px;
+  font-weight: bold;
+}
+
+.clock-wraper p {
+  font-size: 20px;
+  font-weight: normal;
+  color: var(--sub-headline);
+
+  position: absolute;
+  bottom: 0;
+  right: 5px;
+}
+
+section:last-child {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.box-1 {
+  max-width: 800px;
+
+  background-color: var(--secondary-panel);
+  padding: 50px;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.box-1 q {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.box-1 p {
+  color: var(--sub-headline);
+}
+
+.box-2 {
+  background-color: var(--secondary-panel);
+  padding: 25px;
+  border-radius: 10px;
+  width: 500px;
+}
+
+.box-2 ul {
+  margin-left: 25px;
+}
+
+.box-2 li {
+  list-style: none;
+  margin: 10px 0;
+}
+
+.box-2 li a:visited,
+.box-2 li a:link,
+.box-2 li a:active,
+.box-2 li a:hover
+{
+  text-decoration: none;
+  color: var(--body-copy);
+  opacity: 90%;
+  font-weight: bold;
+}
+</style>
