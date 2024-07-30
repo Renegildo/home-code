@@ -8,7 +8,7 @@ import Websites from '../components/Websites.tsx';
   <main>
     <section>
       <h1 class="build-title">
-        What are you going to <br /> <span class="build-span"> BUILD </span> today?
+        What are you going to <br /> <span class="glow" /> <span class="build-span"> BUILD </span> today?
       </h1>
       <Clock client:load />
     </section>
@@ -44,6 +44,7 @@ main {
 .build-title {
   font-weight: normal;
   font-size: 64px;
+  position: relative;
 }
 
 .build-span {
@@ -53,6 +54,19 @@ main {
   
   display: inline-flex;
   justify-content: center;
+}
+
+.glow {
+  background-color: var(--cyan);
+  width: 330px;
+  height: 330px;
+  border-radius: 100%;
+  filter: blur(500px);
+  opacity: 20%;
+  top: -50px;
+  left: -50px;
+  z-index: 0;
+  position: absolute;
 }
 
 section:first-child {
